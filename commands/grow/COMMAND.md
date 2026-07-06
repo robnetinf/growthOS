@@ -96,6 +96,7 @@ If the first word of the user's input matches a known subcommand, route DIRECTLY
 | `export` | Export carousel HTML → PNG 1080x1080 via Playwright |
 | `setup` | Run onboarding/setup flow |
 | `meme` | meme-creator agent |
+| `simulate` | sales-page-persona-simulator skill |
 
 ---
 
@@ -555,6 +556,39 @@ Examples:
 ```
 
 **Delegation:** Load `agents/video-producer/AGENT.md`, pass format, topic, flags, and brand-voice context.
+
+---
+
+#### Subcommand: `simulate`
+
+**Syntax:** `/grow simulate [slug]`
+**Skill:** `sales-page-persona-simulator`
+
+Runs a pre-publish reader simulation against a built sales page: 3-5 buyer personas "read" the page section by section, predicting objections, drop-off points, and conversion likelihood — grounded in `design-intelligence/theory/conversion-psychology.md` and `design-intelligence/references/patterns/objection-handling.md`. This is advisory only; it never touches pipeline `state.json` and is independent of the 8-phase build/QA flow.
+
+**Argument parsing:**
+- `slug` (optional) — Project slug under `growthOS/output/sales-pages/{slug}/`. If omitted:
+  - If exactly one project exists there, use it.
+  - If multiple exist, list them and ask which one.
+  - If none exist, ask the user for a direct path to a built sales page HTML file (this skill also works on any standalone HTML, not just pipeline output).
+
+**If invoked without arguments and no projects exist**, show:
+```
+Usage: /grow simulate [slug]
+
+Simulate how buyer personas would react to a built sales page before you publish —
+predicted objections, drop-off points, and conversion likelihood, grounded in
+conversion psychology and objection-handling patterns.
+
+Examples:
+  /grow simulate my-product          # simulates growthOS/output/sales-pages/my-product/index.html
+  /grow simulate                     # picks the project if only one exists, otherwise asks
+
+No built sales page found yet. Run the sales-page pipeline first, or point me at an
+HTML file directly.
+```
+
+**Delegation:** Invoke the `sales-page-persona-simulator` skill via the Skill tool, passing the resolved slug (or direct HTML path). The skill reads the built page and, if available, `growthOS/voice/offers/{slug}.md` for documented personas/objections, simulates each persona's read-through, writes the report to `growthOS/output/sales-pages/{slug}/previews/persona-simulation.html`, and reports back in chat: aggregate verdict, per-persona likelihood + drop-off point, and the top 3 ranked fixes.
 
 ---
 
