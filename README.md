@@ -135,7 +135,7 @@ Once installed, everything goes through `/grow`:
 /grow research "AI marketing tools 2026"
 
 # Generate a landing page
-/grow create landing "New feature launch page"
+/grow landing "New feature launch page"
 
 # Or just describe what you need — the CMO agent routes it
 /grow "I need content for our product launch next week"
@@ -156,7 +156,7 @@ Once installed, everything goes through `/grow`:
 | **Social Media Management** | Platform strategies, scheduling, community management | `/grow create social "launch campaign"` |
 | **Competitive Intelligence** | SWOT analysis, market trends, competitor tracking | `/grow analyze "competitor X"` |
 | **Video Production** | Scripts, storyboards, video SEO, thumbnail concepts | `/grow video script "product demo"` |
-| **Landing Page Design** | Conversion-optimized HTML, hero sections, A/B variants | `/grow create landing "feature Y"` |
+| **Landing Page Design** | Conversion-optimized HTML, hero sections, A/B variants | `/grow landing "feature Y"` |
 | **Platform Mastery** | Algorithm knowledge per platform (YouTube, LinkedIn, X, etc.) | `/grow research "LinkedIn algorithm"` |
 | **Instagram Carousel** | 6 carousel structures, slide blueprints, engagement triggers | `/grow carousel "10 tips"` |
 | **Remotion Video** | Storyboard-to-composition mapping, frame calculations | `/grow video reel "quick tip"` |

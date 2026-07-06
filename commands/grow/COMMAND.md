@@ -417,6 +417,20 @@ Master pipeline — publishes all approved carousels that haven't been posted ye
 
 ---
 
+#### Subcommand: `setup`
+
+**Syntax:** `/grow setup [--reset]`
+**Doc:** `growthOS/commands/grow/setup.md`
+
+Interactive onboarding wizard — configures brand voice, tone, platforms, and generates a quick-win demo post. This is the flow Step 1 (First-Run Detection) tells the user to run when `brand-voice.yaml` is missing.
+
+**Optional flags:**
+- `--reset` — Back up the existing `brand-voice.yaml` (timestamped) and start the wizard fresh.
+
+**Delegation:** Load and follow `growthOS/commands/grow/setup.md` in full — it owns its own pre-flight (`--reset` handling), wizard steps, and completion message. Do not reimplement the wizard inline here.
+
+---
+
 #### Subcommand: `ig-setup`
 
 **Syntax:** `/grow ig-setup`
