@@ -639,7 +639,18 @@
 
       var message = encodeURIComponent(lines.join('\n'));
       var waUrl = 'https://wa.me/' + whatsappNumber + '?text=' + message;
-      window.open(waUrl, '_blank', 'noopener');
+
+      var newWin = null;
+      try {
+        newWin = window.open(waUrl, '_blank', 'noopener');
+      } catch (err) {
+        newWin = null;
+      }
+      // Popups can be blocked by the browser or by a sandboxed embedding
+      // (e.g. missing "allow-popups"); fall back to same-tab navigation.
+      if (!newWin) {
+        window.location.href = waUrl;
+      }
     });
   }
 
