@@ -405,3 +405,7 @@ async def render_custom(
         "path": output_path,
         "render_time_seconds": round(render_time, 2),
     }
+
+
+if __name__ == "__main__":
+    mcp.run()
