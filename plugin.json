@@ -1,7 +1,7 @@
 {
   "name": "growthOS",
   "version": "1.0.0",
-  "description": "Autonomous marketing team for Claude Code — 11 AI agents, 27 skills, 4 MCP servers, one /grow command",
+  "description": "Autonomous marketing team for Claude Code — 12 AI agents, 27 skills, 4 MCP servers, one /grow command",
   "author": "GrowthOS Community",
   "license": "MIT",
   "repository": "https://github.com/melgarafael/growthOS",
@@ -35,6 +35,7 @@
     {"path": "skills/sales-page-persona-simulator"}
   ],
   "agents": [
+    {"path": "agents/caption-writer"},
     {"path": "agents/cmo"},
     {"path": "agents/growth-strategist"},
     {"path": "agents/content-creator"},
